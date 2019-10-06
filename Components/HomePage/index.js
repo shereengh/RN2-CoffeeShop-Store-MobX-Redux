@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View } from "react-native";
-
+import { connect } from "react-redux";
+import { getCoffeeShops } from "../../store/actions";
 // NativeBase Components
 import { Container, Header } from "native-base";
 
@@ -14,6 +15,9 @@ import CoffeeDetail from "../CoffeeDetail";
 import Login from "../Login";
 
 class HomePage extends Component {
+  async componentDidMount() {
+    await this.props.getCoffeeShops;
+  }
   render() {
     return (
       <Container style={styles.transparent}>
@@ -24,5 +28,12 @@ class HomePage extends Component {
     );
   }
 }
-
-export default HomePage;
+const mapDispatchToProps = dispatch => {
+  return {
+    getCoffeeShops: () => dispatch(getCoffeeShops())
+  };
+};
+export default connect(
+  null,
+  mapDispatchToProps
+)(HomePage);

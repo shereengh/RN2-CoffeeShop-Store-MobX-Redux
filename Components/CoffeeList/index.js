@@ -5,15 +5,16 @@ import { List, Content } from "native-base";
 
 // Store
 import coffeeshops from "./list";
-
+import { connect } from "react-redux";
 // Component
 import CoffeeItem from "./CoffeeItem";
 
 class CoffeeList extends Component {
   render() {
+    const { coffeeShops } = this.props;
     let shops;
-    if (coffeeshops) {
-      shops = coffeeshops.map(coffeeShop => (
+    if (coffeeShops) {
+      shops = coffeeShops.map(coffeeShop => (
         <CoffeeItem coffeeShop={coffeeShop} key={coffeeShop.id} />
       ));
     }
@@ -24,5 +25,9 @@ class CoffeeList extends Component {
     );
   }
 }
-
+const mapStateToProps = state => {
+  return {
+    coffeeShops: state.rootCoffee.coffeeShops
+  };
+};
 export default CoffeeList;
