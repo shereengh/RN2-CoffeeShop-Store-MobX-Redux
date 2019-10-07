@@ -30,4 +30,4 @@ const mapStateToProps = state => {
     coffeeShops: state.rootCoffee.coffeeShops
   };
 };
-export default CoffeeList;
+export default connect(mapStateToProps)(CoffeeList);
