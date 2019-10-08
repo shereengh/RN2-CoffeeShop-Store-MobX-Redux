@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import { List, Content } from "native-base";
 
 // Store
-import coffeeshops from "./list";
 import { connect } from "react-redux";
 // Component
 import CoffeeItem from "./CoffeeItem";

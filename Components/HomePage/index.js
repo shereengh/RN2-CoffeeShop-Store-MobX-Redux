@@ -16,7 +16,7 @@ import Login from "../Login";
 
 class HomePage extends Component {
   async componentDidMount() {
-    await this.props.getCoffeeShops;
+    await this.props.getCoffeeShops();
   }
   render() {
     return (
